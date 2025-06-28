@@ -1,0 +1,28 @@
+li {
+  background: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.task-text.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.delete-btn {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: none; /* Sembunyikan dulu */
+}
+
+li:hover .delete-btn {
+  display: block; /* Tampilkan saat hover */
+}
