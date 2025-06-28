@@ -6,8 +6,15 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <h1>To-Do List</h1>
-  <h2 id="dateDisplay"></h2>
+  <div class="header-container">
+    <div class="date-section">
+      <h1>To-Do List</h1>
+      <h2 id="dateDisplay"></h2>
+    </div>
+    <div class="calendar-section">
+      <button id="calendarBtn" class="calendar-btn">📅</button>
+    </div>
+  </div>
 
   <div class="input-group">
     <input id="taskInput" type="text" placeholder="Add ur task here...">
@@ -16,6 +23,21 @@
   </div>
 
   <ul id="taskList"></ul>
+
+  <!-- Calendar Modal -->
+  <div id="calendarModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Pilih Tanggal</h3>
+        <span class="close">&times;</span>
+      </div>
+      <div id="calendar"></div>
+      <div class="selected-date-tasks">
+        <h4 id="selectedDateTitle">Tasks untuk hari ini</h4>
+        <ul id="selectedDateTaskList"></ul>
+      </div>
+    </div>
+  </div>
 
   <script src="renderer.js"></script>
 </body>
