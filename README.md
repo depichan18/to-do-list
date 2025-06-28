@@ -20,7 +20,9 @@ A simple, cute, and interactive To Do List application built with [Electron](htt
 ## Tampilan
 
 ![Tampilan Utama](assets/image.png)
+
 ![Tampilan Kalender](assets/images2.png)
+
 ![Tampilan FullScreen](assets/images3.png)
 
 ---
