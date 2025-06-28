@@ -40,6 +40,8 @@ input[type="text"] {
   border-radius: 6px;
   border: 1px solid #ccc;
   height: 25px; /* Fixed height to match with buttons */
+  position: relative;
+  top: -10px; /* Align top with buttons */
 }
 
 button {
@@ -460,12 +462,12 @@ input[type="checkbox"] {
   padding: 5px !important;
   margin-top: 0 !important;
   position: relative;
-  top: -10px; /* Move the button up to align with the input field */
+  top: -10px; /* Keep at same level as input field */
 }
 
 .add-button {
   position: relative;
-  top: 3px; /* Adjusted from 5px to 3px to raise the button by 2px */
+  top: 3px; /* Maintain current vertical position */
 }
 
 .add-button-container,

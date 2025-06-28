@@ -90,3 +90,6 @@ typings/
 
 # Electron-Forge
 out/
+
+calendar-data.json
+data.json
