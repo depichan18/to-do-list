@@ -54,7 +54,7 @@ npm start
 
 ## Coba Langsung (Windows .exe)
 
-Jika ingin langsung mencoba tanpa instalasi, silakan download file **KuromiToDo.exe** di folder [releases](./releases) atau [rilis terbaru di GitHub Releases](https://github.com/depichan/to-do-list) jika tersedia.
+Jika ingin langsung mencoba tanpa instalasi, silakan download file **KuromiToDo.exe** di [rilis terbaru di GitHub Releases](https://github.com/depichan18/to-do-list/releases/tag/depichan18) jika tersedia.
 
 - **Langkah:**
   1. Download file `KuromiToDo.exe`
