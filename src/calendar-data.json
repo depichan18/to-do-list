@@ -2,17 +2,31 @@
   "2025-06-28": [
     {
       "text": "skinkeran",
-      "done": true,
-      "note": "udah",
-      "id": "1751095639833",
-      "createdAt": "2025-06-28T07:27:19.833Z"
+      "done": false,
+      "note": "",
+      "id": "1751098801067",
+      "createdAt": "2025-06-28T08:20:01.067Z"
     },
     {
-      "text": "makan geprek",
-      "done": true,
+      "text": "turu",
+      "done": false,
+      "note": "karena depi harus turu",
+      "id": "1751098804376",
+      "createdAt": "2025-06-28T08:20:04.376Z"
+    },
+    {
+      "text": "tugas graf",
+      "done": false,
       "note": "",
-      "id": "1751095656768",
-      "createdAt": "2025-06-28T07:27:36.768Z"
+      "id": "1751103328184",
+      "createdAt": "2025-06-28T09:35:28.184Z"
+    },
+    {
+      "text": "ngechat farrell",
+      "done": false,
+      "note": "",
+      "id": "1751103334383",
+      "createdAt": "2025-06-28T09:35:34.383Z"
     }
   ]
 }

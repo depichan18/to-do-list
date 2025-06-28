@@ -108,6 +108,7 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    title: 'Kuromi ToDo List!', // Mengatur judul window
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,

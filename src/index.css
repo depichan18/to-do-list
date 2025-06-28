@@ -1,7 +1,17 @@
+@font-face {
+  font-family: 'Kuromi';
+  src: url('./utilities/kuromi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, body * {
+  font-family: 'Kuromi', sans-serif !important;
+}
+
 body {
-  font-family: sans-serif;
   padding: 40px;
-  background-color: #fff;
+  background-color: rgba(255, 209, 220, 0.5); /* Pink muda/pastel dengan 50% opacity */
   color: #333;
 }
 
@@ -20,6 +30,7 @@ h1 {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  align-items: center; /* Changed from flex-start to center */
 }
 
 input[type="text"] {
@@ -28,6 +39,7 @@ input[type="text"] {
   font-size: 16px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  height: 25px; /* Fixed height to match with buttons */
 }
 
 button {
@@ -44,13 +56,28 @@ button:hover {
   background-color: #45a049;
 }
 
+#resetBtn, #resetBtn:hover {
+  all: unset;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 4px;
+  transition: background-color 0.2s ease;
+}
+
 #resetBtn {
-  background-color: #e74c3c;
-  color: white;
+  position: relative;
+  top: 2px; /* Lower the Reset button by 2 pixels */
 }
 
 #resetBtn:hover {
-  background-color: #c0392b;
+  background-color: white; /* Latar belakang putih saat hover */
+}
+
+#resetBtn img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
 }
 
 ul {
@@ -109,13 +136,31 @@ li.task-item {
   width: 140px;
 }
 
-.delete-btn {
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  color: black;
+.delete-btn, .delete-btn:hover {
+  all: unset;
   cursor: pointer;
+  border-radius: 50%;
+  padding: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.delete-btn {
   display: none;
+}
+
+.task-item:hover .delete-btn {
+  display: flex;
+}
+
+.delete-btn:hover {
+  background-color: white; /* Latar belakang putih saat hover */
+}
+
+.delete-btn img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
 }
 
 input[type="checkbox"] {
@@ -135,31 +180,67 @@ input[type="checkbox"] {
   margin-bottom: 5px;
 }
 
+.title-with-image {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.header-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-right: 15px;
+  margin-top: -15px;
+  margin-left: -20px;
+  margin-bottom: -5px;
+}
+
+.title-with-image h1 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
 .date-section #dateDisplay {
   margin-bottom: 0;
 }
 
 .calendar-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+.calendar-label {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #333;
+}
+
+/* Hapus semua style khusus calendar-btn agar gambar tampil apa adanya */
+.calendar-btn,
+.calendar-btn:hover,
+.calendar-btn img {
+  all: unset;
+  cursor: pointer;
 }
 
 .calendar-btn {
-  background-color: #2196F3;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
 }
 
 .calendar-btn:hover {
-  background-color: #1976D2;
+  background-color: white; /* Latar belakang putih saat hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Modal Styles */
@@ -175,7 +256,7 @@ input[type="checkbox"] {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #FFFFFF;
   margin: 5% auto;
   padding: 20px;
   border-radius: 10px;
@@ -183,6 +264,8 @@ input[type="checkbox"] {
   max-width: 600px;
   max-height: 80vh;
   overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 2px solid #FFD8BE; /* Orange pastel border */
 }
 
 .modal-header {
@@ -190,8 +273,11 @@ input[type="checkbox"] {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #FFD8BE; /* Orange pastel */
   padding-bottom: 10px;
+  background-color: #FFF5F8; /* Very light pink */
+  border-radius: 6px 6px 0 0;
+  padding: 10px;
 }
 
 .close {
@@ -212,48 +298,52 @@ input[type="checkbox"] {
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
   margin-bottom: 20px;
+  background-color: #F2F2F2; /* Light gray background */
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 .calendar-header {
   text-align: center;
   font-weight: bold;
   padding: 10px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #FFC2D1; /* Pink pastel */
+  color: #333;
   border-radius: 4px;
 }
 
 .calendar-day {
   text-align: center;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   border-radius: 4px;
   cursor: pointer;
-  background-color: #f9f9f9;
+  background-color: #F8F8F8; /* Light gray */
 }
 
 .calendar-day:hover {
-  background-color: #e0e0e0;
+  background-color: #EAEAEA; /* Slightly darker gray */
 }
 
 .calendar-day.today {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #FFD8BE; /* Orange pastel */
+  color: #333;
 }
 
 .calendar-day.selected {
-  background-color: #2196F3;
-  color: white;
+  background-color: #FFC2D1; /* Pink pastel */
+  color: #333;
 }
 
 .calendar-day.has-tasks {
-  background-color: #FFC107;
-  color: black;
+  background-color: #FFD8BE; /* Orange pastel */
+  color: #333;
 }
 
 .calendar-day.has-tasks.today {
-  background-color: #FF9800;
-  color: white;
+  background-color: #FFBF9B; /* Slightly darker orange pastel */
+  color: #333;
 }
 
 .calendar-nav {
@@ -261,25 +351,33 @@ input[type="checkbox"] {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  background-color: #F8F8F8; /* Light gray */
+  border-radius: 6px;
+  padding: 5px;
 }
 
 .calendar-nav button {
-  background-color: #2196F3;
-  color: white;
+  background-color: #FFC2D1; /* Pink pastel */
+  color: #333;
   border: none;
   padding: 8px 12px;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .calendar-nav button:hover {
-  background-color: #1976D2;
+  background-color: #FFB0C5; /* Slightly darker pink pastel */
 }
 
 /* Selected Date Tasks */
 .selected-date-tasks {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #FFD8BE; /* Orange pastel */
   padding-top: 20px;
+  background-color: #FFF5F8; /* Very light pink */
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 10px;
 }
 
 #selectedDateTaskList {
@@ -298,4 +396,88 @@ input[type="checkbox"] {
 #selectedDateTaskList .task-text.done {
   text-decoration: line-through;
   color: gray;
+}
+
+/* Hapus semua style khusus button tambah, kecuali posisi/layout di .input-group */
+.input-group button {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  min-width: unset;
+  min-height: unset;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.input-group button:hover {
+  background-color: white; /* Latar belakang putih saat hover */
+}
+
+.input-group button img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.button-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 5px; /* Added margin to bottom instead */
+}
+
+.button-label {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  position: absolute;
+  bottom: -15px; /* Position the label below the button */
+  width: 100%;
+}
+
+/* Tambahkan style untuk .action-button */
+.action-button {
+  padding: 5px !important;
+  margin-top: 0 !important;
+  position: relative;
+  top: -10px; /* Move the button up to align with the input field */
+}
+
+.add-button {
+  position: relative;
+  top: 3px; /* Adjusted from 5px to 3px to raise the button by 2px */
+}
+
+.add-button-container,
+.reset-button-container {
+  height: 80px; /* Fixed equal height for both containers */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-button-container .button-label,
+.reset-button-container .button-label {
+  position: absolute;
+  bottom: 5px; /* Fixed position from bottom for both labels */
 }

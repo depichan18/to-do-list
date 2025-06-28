@@ -148,8 +148,9 @@ function renderTasks() {
     });
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = '🗑';
-    deleteBtn.classList.add('delete-btn');
+    deleteBtn.innerHTML = '<img src="utilities/Trash.png" alt="Hapus" style="width:28px;height:28px;object-fit:contain;" />';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.title = 'Delete Task';
     deleteBtn.addEventListener('click', async () => {
       tasks.splice(index, 1);
       await saveTasks();

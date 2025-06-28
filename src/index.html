@@ -2,24 +2,40 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>To-Do List</title>
+  <title>Kuromi ToDo List!</title>
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <div class="header-container">
     <div class="date-section">
-      <h1>To-Do List</h1>
+      <div class="title-with-image">
+        <img src="utilities/kuromichan.png" alt="Kuromi Chan" class="header-image" />
+        <h1>Depichan To Do</h1>
+      </div>
       <h2 id="dateDisplay"></h2>
     </div>
     <div class="calendar-section">
-      <button id="calendarBtn" class="calendar-btn">📅</button>
+      <button id="calendarBtn" class="calendar-btn" title="Calendar">
+        <img src="utilities/Calendar.png" alt="Calendar" style="width:70px;height:70px;object-fit:contain;" />
+      </button>
+      <div class="calendar-label">Calendar</div>
     </div>
   </div>
 
   <div class="input-group">
     <input id="taskInput" type="text" placeholder="Add ur task here...">
-    <button onclick="addTask()">+</button>
-    <button id="resetBtn">🧹</button>
+    <div class="button-container add-button-container">
+      <button onclick="addTask()" title="Add Task" class="action-button add-button">
+        <img src="utilities/AddButton.png" alt="Tambah" style="width:50px;height:50px;object-fit:contain;" />
+      </button>
+      <div class="button-label">Add</div>
+    </div>
+    <div class="button-container reset-button-container">
+      <button id="resetBtn" title="Reset Tasks" onclick="resetTasks()" class="action-button">
+        <img src="utilities/ResetButton.png" alt="Reset" style="width:40px;height:40px;object-fit:contain;" />
+      </button>
+      <div class="button-label">Reset</div>
+    </div>
   </div>
 
   <ul id="taskList"></ul>
