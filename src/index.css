@@ -7,6 +7,13 @@ body {
 
 h1 {
   font-size: 32px;
+  margin-bottom: 5px;
+}
+
+#dateDisplay {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
 }
 
 .input-group {
@@ -37,6 +44,15 @@ button:hover {
   background-color: #45a049;
 }
 
+#resetBtn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+#resetBtn:hover {
+  background-color: #c0392b;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -58,6 +74,12 @@ li.task-item {
   gap: 12px;
 }
 
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .task-text {
   font-size: 16px;
   cursor: pointer;
@@ -68,12 +90,6 @@ li.task-item {
   color: gray;
 }
 
-.task-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .task-note {
   font-size: 13px;
   color: #666;
@@ -81,21 +97,23 @@ li.task-item {
   cursor: pointer;
 }
 
-.task-note-input, .task-edit-input {
-  font-size: 14px;
-  padding: 4px;
-  width: 120px;
-}
-
-li.task-item:hover .task-note,
-li.task-item:hover .delete-btn {
+.task-item:hover .task-note,
+.task-item:hover .delete-btn {
   display: inline;
 }
 
+.task-note-input,
+.task-edit-input {
+  font-size: 13px;
+  padding: 4px;
+  width: 140px;
+}
+
 .delete-btn {
-  background-color: transparent;
+  background: transparent;
   border: none;
   font-size: 18px;
+  color: black;
   cursor: pointer;
   display: none;
 }

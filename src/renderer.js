@@ -1,9 +1,21 @@
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
+const dateDisplay = document.getElementById('dateDisplay');
+const resetBtn = document.getElementById('resetBtn');
 
 taskInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') addTask();
 });
+
+resetBtn.addEventListener('click', () => {
+  if (confirm("Yakin ingin menghapus semua tugas?")) {
+    tasks = [];
+    saveTasks();
+    renderTasks();
+    taskInput.focus();
+  }
+});
+
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -18,7 +30,6 @@ function renderTasks() {
     const li = document.createElement('li');
     li.classList.add('task-item');
 
-    // LEFT: checkbox + text
     const taskContent = document.createElement('div');
     taskContent.classList.add('task-content');
 
@@ -55,23 +66,15 @@ function renderTasks() {
       input.addEventListener('blur', () => renderTasks());
     });
 
-    taskContent.appendChild(checkbox);
-    taskContent.appendChild(taskSpan);
-
-    // RIGHT: note + delete
-    const taskActions = document.createElement('div');
-    taskActions.classList.add('task-actions');
-
     const note = document.createElement('div');
     note.textContent = task.note || '📝 add note...';
     note.classList.add('task-note');
-
     note.addEventListener('click', () => {
       const input = document.createElement('input');
       input.type = 'text';
       input.value = task.note || '';
       input.className = 'task-note-input';
-      taskActions.replaceChild(input, note);
+      rightSide.replaceChild(input, note);
       input.focus();
 
       input.addEventListener('keypress', (e) => {
@@ -94,11 +97,17 @@ function renderTasks() {
       renderTasks();
     });
 
-    taskActions.appendChild(note);
-    taskActions.appendChild(deleteBtn);
+    const rightSide = document.createElement('div');
+    rightSide.classList.add('task-actions');
+    rightSide.appendChild(note);
+    rightSide.appendChild(deleteBtn);
+
+    taskContent.appendChild(checkbox);
+    taskContent.appendChild(taskSpan);
 
     li.appendChild(taskContent);
-    li.appendChild(taskActions);
+    li.appendChild(rightSide);
+
     taskList.appendChild(li);
   });
 }
@@ -113,5 +122,16 @@ function addTask() {
   taskInput.value = '';
 }
 
+function updateDate() {
+  const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const now = new Date();
+  const dayName = days[now.getDay()];
+  const dateStr = now.toLocaleDateString('id-ID', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+  dateDisplay.textContent = `${dayName}, ${dateStr}`;
+}
+
 renderTasks();
+updateDate();
 taskInput.focus();
