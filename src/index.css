@@ -1,12 +1,66 @@
-li {
+body {
+  font-family: sans-serif;
+  padding: 40px;
+  background-color: #fff;
+  color: #333;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 0 16px;
+  font-size: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #f9f9f9;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 10px 14px;
   border-radius: 8px;
+}
+
+.task-content {
   display: flex;
   align-items: center;
-  gap: 10px;
-  position: relative;
+  gap: 12px;
+}
+
+.task-text {
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .task-text.done {
@@ -14,15 +68,39 @@ li {
   color: gray;
 }
 
-.delete-btn {
-  margin-left: auto;
-  background-color: transparent;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  display: none; /* Sembunyikan dulu */
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-li:hover .delete-btn {
-  display: block; /* Tampilkan saat hover */
+.task-note {
+  font-size: 13px;
+  color: #666;
+  display: none;
+  cursor: pointer;
+}
+
+.task-note-input, .task-edit-input {
+  font-size: 14px;
+  padding: 4px;
+  width: 120px;
+}
+
+li.task-item:hover .task-note,
+li.task-item:hover .delete-btn {
+  display: inline;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
 }
